@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: brown;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-size: 1em;
+        }
+
+        header,
+        footer {
+            background-color: cadetblue;
+            
+        }
+
+        #middler {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #chester {
+            flex-grow: 1;
+            background-color: chocolate;
+        }
+
+        #lefter,
+        #righter {
+            background-color: chartreuse;
+            width: 250px;
+        }
+
+        header,
+        footer,
+        #chester,
+        #lefter,
+        #righter {
+            padding: 5px;
+        }
+
+        img {
+            width: 250px;
+        }
+        pre{
+            background-color: cornsilk;
+            width: fit-content;
+        }
+    </style>
+    <script>
+
+        const changeColorBtn = document.getElementById("change-color");
+        const headerColor = document.getElementById("header");
+    
+        changeColorBtn.addEventListener("click", () => {
+            var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            headerColor.style.backgroundColor = randomColor;
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Week 2: More flex-box and the Holy Grail</h1>
+    </header>
+    <div id="middler">
+        <aside id="lefter">This week I learned about the holy grail web design format.
+            So I have used that as the format for this weeks blog post. I also feel I
+            need to make a Monty Python reference so here it is: <img
+                src="https://m.media-amazon.com/images/M/MV5BOTViY2Y0ZGItMTg2OC00YzEzLWJhYjYtZjg4OTMyOWE4YzM1XkEyXkFqcGdeQXVyNTQ1NzU4Njk@._V1_.jpg"
+                alt="Monty Python's Holy Grail">
+            And now for something completely different. JavaScript is used to add events to your webpage and make it
+            interactive to the user.
+            I have added a button that will randomly change the colors of the webpage. So excuse the ugly base color
+            hopefully it is an
+            incentive to click the button.
+        </aside>
+        <main id="chester">
+            <button id="change-color">Change Color</button>
+            <p>
+            I can't get it to work :(. It seems my button isn't working at all even when trying to test it with an alert
+            using this code snippet <a href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">from:</a>
+            <pre><code>element.addEventListener("click", function(){ alert("Hello World!"); });
+        </code></pre>
+        Nevertheless my attempted code was: <pre><code>
+            const changeColorBtn = document.getElementById("change-color");
+            const headerColor = document.getElementById("header");
+        
+            changeColorBtn.addEventListener("click", () => {
+                var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                headerColor.style.backgroundColor = randomColor;
+    
+            });
+    </code></pre>
+    </p>
+        </main>
+        <aside id="righter">I am not sure why my button won't work I have given it the id change-color so I believe the getElementById("change-color") should work
+            but even with the alert function it wouldn't work. 
+        </aside>
+    </div>
+    <footer>
+        <h2>
+            <footer><a href="http://143.110.140.67:8000/">Home</a></footer>
+        </h2>
+    </footer>
+</body>
+
+</html>
