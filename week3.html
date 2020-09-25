@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3</title>
+</head>
+
+<body>
+    <nav>
+        <a data-id="1">Paragraph 1</a>
+        <a data-id="2">Paragraph 2</a>
+        <a data-id="3">Code Segment 1</a>
+        <a data-id="4">Code Segement 2</a>
+
+    </nav>
+    <main>
+        <div class="active">This week I learned about css positioning. The positions relative, fixed, and absolute allow
+            us
+            to control the layout of out page. There are other ways to do page layout such as flexbox but when we use
+            these positions we can
+            use the four attributes: left, right, top, and bottom which give us power to place elements of the pages
+            where we want. To get
+            this paragraph in the spot it is I used the snippet found in Code Segment 1.
+        </div>
+        <div>We learned how to make a nav bar, so I attempted to make one similar to how was displayed in lecture 8. I
+            couldn't
+            complete the post with that version of the nav bar because I couldn't figure out the
+            querySelectorAll("?????") selector. Without
+            that I couldn't update the text based on which option was clicked so I went with a simpler nav bar with the
+            help of a <a
+                href="https://stackoverflow.com/questions/39418339/navbar-that-changes-div-contents-all-in-one-page">
+                StackoverFlow post</a>. The javascript code segment I used can be found in Code Segement 2.
+        </div>
+        <div>
+            <pre>
+                  <code>
+                    main{
+                        position: absolute;
+                        bottom: 50%;
+                        right: 20%;
+                     }
+                  </code>
+              </pre>
+        </div>
+        <div>
+            <pre>
+                  <code>
+                document.querySelectorAll('nav a')
+                    .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+            
+            
+                function change(n) {
+                    let text = document.querySelectorAll('main div')
+                    text.forEach(p => p.classList.remove('active'))
+                    text[n - 1].classList.add('active')
+                }
+                  </code>
+              </pre>
+        </div>
+
+    </main>
+
+</body>
+<style>
+    body {
+        margin: 0;
+        background-color: blanchedalmond;
+    }
+
+    nav {
+        display: flex;
+        color: salmon;
+        background-color: rgb(255, 246, 232);
+        cursor: pointer;
+        font-size: 1.5em;
+        font-family: fantasy;
+
+    }
+
+    nav a {
+        padding: 10px;
+        border-right: 1px solid lightgray;
+
+    }
+
+    nav a:hover {
+        background-color: rgb(250, 247, 243);
+        display: block;
+    }
+
+    main div {
+        display: none;
+        padding: 20px;
+        width: 700px;
+        font-size: 1.5em;
+
+    }
+
+    main {
+        position: absolute;
+        bottom: 50%;
+        right: 20%;
+    }
+
+    .active {
+        display: block;
+    }
+    
+</style>
+<script>
+    document.querySelectorAll('nav a')
+        .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+
+
+    function change(n) {
+        let text = document.querySelectorAll('main div')
+        text.forEach(p => p.classList.remove('active'))
+        text[n - 1].classList.add('active')
+    }
+</script>
+
+</html>
