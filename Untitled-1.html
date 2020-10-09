@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            background-color: cornflowerblue;
+            justify-content: center;
+            margin: 0;
+
+        }
+
+        #main {
+            background-color: antiquewhite;
+            width: 800px;
+            height: fit-content;
+            border: 2px solid black;
+            padding: 5px;
+        }
+
+        /* .image-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        } */
+
+        #header {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .hashtag {
+            background-color: rgb(96, 156, 156);
+            border-radius: 5px;
+            width: fit-content;
+            padding: 10px;
+            margin: 5px;
+            font-size: 2em;
+        }
+       
+        @media (max-width: 800px) {
+            #main {
+                width: auto;
+                border: none;
+            }
+            figure{
+                margin: 0;
+            }
+            img {
+                width: 100%;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            #header {
+                flex-direction: column;
+            }
+
+            .hashtag {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+        <div id="header">
+            <div class="hashtag">one</div>
+            <div class="hashtag">two</div>
+            <div class="hashtag">three</div>
+            <div class="hashtag">four</div>
+            <div class="hashtag">five</div>
+            <div class="hashtag">six</div>
+            <div class="hashtag">seven</div>
+            <div class="hashtag">eight</div>
+            <div class="hashtag">nine</div>
+            <div class="hashtag">ten</div>
+
+        </div>
+        <h1>Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure veritatis aut harum atque ratione laboriosam
+            officiis numquam temporibus fuga! Unde?</p>
+        <p>Vitae, ratione eaque! Obcaecati eius at debitis magnam cupiditate corrupti, dicta totam adipisci reiciendis
+            autem harum aut nesciunt, tempora eos.</p>
+        <figure>
+            <img src="https://picsum.photos/700/200" alt="">
+                    <figcaption>
+                    figure 1 tag Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore repudiandae vero
+                    expedita. Officia possimus nam voluptatem asperiores sed. Animi
+                </figcaption>
+        </figure>
+        <p>Dolorum nam nostrum culpa unde sed mollitia, reiciendis animi, tempora, ab error quis fuga ut similique iure
+            dolores molestiae aliquam!</p>
+        <p>Nostrum officia ullam tempora, cupiditate totam dicta amet nihil minima perferendis! Nisi nobis expedita quia
+            optio mollitia aliquid tempora eveniet!</p>
+        <p>Error dolor facilis tenetur veniam, culpa hic pariatur at qui eaque, asperiores harum laborum quod eius,
+            earum autem porro sequi.</p>
+        <figure>
+            <img src="https://picsum.photos/700/250" alt="">
+                    <figcaption>
+                    figure 2 tag Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, doloremque quibusdam
+                    animi
+                    numquam assumenda ullam.
+                </figcaption>
+        </figure>
+        <p>Quam maiores aliquam molestias harum natus temporibus voluptates adipisci. Repellendus nulla consectetur quam
+            repudiandae expedita quaerat in. Reiciendis, eum repellat.</p>
+        <p>Porro animi libero obcaecati quisquam corporis atque quos fugiat! Itaque minima totam adipisci illum nostrum
+            voluptatum quis amet officiis neque.</p>
+        <p>Quibusdam voluptates quas ducimus accusamus perspiciatis a sint consequuntur sed hic ad? Unde nisi enim
+            dolore, facere dolor reprehenderit nihil!</p>
+        <figure>
+            <img src="https://picsum.photos/700/275" alt="">
+                    <figcaption>figure 3 tag Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, eos.</figcaption>
+        </figure>
+        <p>Enim, accusantium deserunt asperiores fuga ipsa, magnam officia unde, quaerat laborum distinctio impedit.
+            Explicabo molestiae repellat delectus! Harum, iusto ducimus.</p>
+        <p>Id ratione voluptas saepe mollitia itaque harum quae a dicta corrupti cupiditate officiis dignissimos, quia
+            quam, amet, eveniet perspiciatis quidem!</p>
+    </div>
+</body>
+
+</html>

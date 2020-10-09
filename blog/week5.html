@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: brown;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            font-size: 1em;
+        }
+
+        header,
+        footer {
+            background-color: rgb(136, 221, 224);
+
+        }
+
+        #middler {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #chester {
+            flex-grow: 1;
+            background-color: rgb(211, 135, 81);
+        }
+
+        #lefter,
+        #righter {
+            background-color: cornsilk;
+            width: 250px;
+        }
+
+        header,
+        footer,
+        #chester,
+        #lefter,
+        #righter {
+            padding: 5px;
+        }
+
+        img {
+            width: 250px;
+        }
+
+        pre {
+            width: fit-content;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Week 5: Photo gallery and schedule research for project 1</h1>
+    </header>
+    <div id="middler">
+        <aside id="lefter">
+            So this week I did some reasearch on how to implement some things I had ideas for on my project.
+            The first thing I wanted to use on my website is a schedule so I found a way to integrate a 
+            <a href="https://support.google.com/calendar/answer/41207?hl=en">google calendar</a> on a website.
+            So I plan to make a fake schedule and have this embeded on the left side of the page so that people
+            have quick info on the schedule.
+        </aside>
+        <main id="chester">
+           
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FNew_York&amp;src=NThtNGYyaTIxMjY3ZDJyZ2x2ZjFoMWVnMHNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </main>
+        <aside id="righter">
+            I have been trying to find a guide on how to create a photo slideshow to display pictures on the website
+            but I can't find a guide so much as products that have already been created. So I plan to use the slideshow
+            lab thing that we did for class. I think I will be able to change it so that it will allow for pictures to 
+            be looked through with arrow presses.
+        </aside>
+    </div>
+    <footer>
+        <h2>
+            <footer><a href="http://143.110.140.67:8000/">Home</a></footer>
+        </h2>
+    </footer>
+</body>
+
+</html>
