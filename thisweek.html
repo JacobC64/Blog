@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7</title>
+</head>
+
+<body>
+    <nav>
+        <a data-id="1">Paragraph 1</a>
+        <a data-id="2">Paragraph 2</a>
+        <a data-id="3">Code Segment 1</a>
+        <a data-id="4">Code Segement 2</a>
+
+    </nav>
+    <main>
+        <div class="active">This week we covered react and express, so I wanted to take a deeper look into react. I wanted
+            learn more about it so I looked at the <a href="https://reactjs.org/docs/thinking-in-react.html">react</a> website
+            where they have guides for learning. The guide suggests starting with a static model of your app, creating a component
+            hierarchy, and using prop instead of state. Their example for a app to check the stock of a store uses prop and their 
+            static code segment (segment 1). 
+        </div>
+        <div>
+            Next they show an example of how to implement state objects. They give a list on how to identify where state objects should 
+            be used: <ul><li>Is it passed in from a parent via props?  so, it probably isn’t state.</li> 
+                <li>Does it remain unchanged over time? If so, it probably isn’t state.</li>
+           <li>Can you compute it based on any other state or props in your component? If so, it isn’t state.</li>
+         </ul>
+         This is where it started to get confusing but it showed how to have the states update down the component hierarchy but when 
+         it came to updating the page based on the user input there was a lot to unpack. Seemingly the values of the components are 
+         used in callbacks to the component that "owns" state and there it calls setState() which will update the page.
+
+        </div>
+        <div>
+            <pre>
+                  <code>
+                    render() 
+                        return (
+                            div
+                             SearchBar 
+                            roductTable products={this.props.products} 
+                          div
+                        );
+                  </code>
+              </pre>
+        </div>
+        <div>
+            <pre>
+                  <code>
+                    render() {
+                        return (
+                          div>
+                            SearchBar
+                              filterText={this.state.filterText}
+                              inStockOnly={this.state.inStockOnly}
+                            />
+                            ProductTable
+                              products={this.props.products}
+                              filterText={this.state.filterText}
+                              inStockOnly={this.state.inStockOnly}
+                            />
+                          /div>
+                        );
+                  </code>
+              </pre>
+        </div>
+
+    </main>
+
+</body>
+<style>
+    body {
+        margin: 0;
+        background-color: blanchedalmond;
+    }
+
+    nav {
+        display: flex;
+        color: salmon;
+        background-color: rgb(255, 246, 232);
+        cursor: pointer;
+        font-size: 1.5em;
+        font-family: fantasy;
+
+    }
+
+    nav a {
+        padding: 10px;
+        border-right: 1px solid lightgray;
+
+    }
+
+    nav a:hover {
+        background-color: rgb(250, 247, 243);
+        display: block;
+    }
+
+    main div {
+        display: none;
+        padding: 20px;
+        width: 700px;
+        font-size: 1.5em;
+
+    }
+
+    main {
+        position: absolute;
+        bottom: 50%;
+        right: 20%;
+    }
+
+    .active {
+        display: block;
+    }
+    
+</style>
+<script>
+    document.querySelectorAll('nav a')
+        .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+
+
+    function change(n) {
+        let text = document.querySelectorAll('main div')
+        text.forEach(p => p.classList.remove('active'))
+        text[n - 1].classList.add('active')
+    }
+</script>
+
+</html>
