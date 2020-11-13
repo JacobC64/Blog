@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7</title>
+</head>
+
+<body>
+    <nav>
+        <a data-id="1">Paragraph 1</a>
+        <a data-id="2">Paragraph 2</a>
+        <a data-id="3">Code Segment 1</a>
+        <a data-id="4">Code Segement 2</a>
+
+    </nav>
+    <main>
+        <div class="active">This week I decided to try to learn more about 
+            react-redux. So I doubt there will be much interesting info here
+            as I just looked up a redux tutorial at
+             <a href="https://react-redux.js.org/introduction/why-use-react-redux">
+            this website</a> and <a href="https://blog.isquaredsoftware.com/2018/06/redux-fundamentals-workshop-slides/">
+            this slideshow workshop.</a> Of the bat, I learned that redux can be used with
+            other frameworks such as Angular and Vue but it is tailored to React. They also
+            mentioned it was an MVC pattern which I know a little bit about, but makes sense
+            when I thought about it. You have the state and to enact a change a reducer must 
+            be called.
+        </div>
+        <div>
+            It pointed out that reducers are "pure functions" which they say make copies
+            of the input and only modify the copy before returning them rather than modifying
+            the actual input. This makes sense as you have us use the ... or spread operator,
+            as I just learned the name, is used to copy the object which is pretty cool. When
+            I was looking at this guide and other guides I kept coming across the keyword connect
+            and reading a little about it " generates wrapper "container" components that 
+            subscribe to the store, so you don't have to write store 
+            subscription code for every component that needs to talk to the store." But we haven't 
+            used it in our projects so far so I was wondering why. 
+            
+        </div>
+        <div>
+            <pre>
+                  <code>
+                    function todosReducer(state = [], action) {
+                        switch (action.type) {
+                            case "ADD_TODO":
+                                // Instead of calling `state.push()`, which modifies the
+                                // existing array, use `state.concat()` to return a new array
+                                return state.concat([{
+                                    text: action.text, completed: false
+                                }]);
+                            case "TOGGLE_TODO":
+                                // `map()` returns a new array, and
+                                // `{...someObject}` returns a new object
+                                return state.map((todo, index) => {
+                                    if(index !== action.index) return todo;
+                                    return {...todo, completed: !todo.completed }
+                                })
+                            case "REMOVE_TODO":
+                                return state.filter( (todo, index) => {
+                                    return index !== action.index
+                                });
+                            default: return state;
+                        }
+                  </code>
+              </pre>
+        </div>
+        <div>
+            <pre>
+                  <code>
+                    export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+// Expanded:
+// const generateWrapperComponent = connect(mapState, mapDispatch);
+// const ConnectedCounter = generateWrapperComponent(Counter);
+                  </code>
+              </pre>
+        </div>
+
+    </main>
+
+</body>
+<style>
+    body {
+        margin: 0;
+        background-color: blanchedalmond;
+    }
+
+    nav {
+        display: flex;
+        color: salmon;
+        background-color: rgb(255, 246, 232);
+        cursor: pointer;
+        font-size: 1.5em;
+        font-family: fantasy;
+
+    }
+
+    nav a {
+        padding: 10px;
+        border-right: 1px solid lightgray;
+
+    }
+
+    nav a:hover {
+        background-color: rgb(250, 247, 243);
+        display: block;
+    }
+
+    main div {
+        display: none;
+        padding: 20px;
+        width: 700px;
+        font-size: 1.5em;
+
+    }
+
+    main {
+        position: absolute;
+        bottom: 30%;
+        right: 20%;
+    }
+
+    .active {
+        display: block;
+    }
+    
+</style>
+<script>
+    document.querySelectorAll('nav a')
+        .forEach(e => e.addEventListener('click', _ => change(e.dataset.id)))
+
+
+    function change(n) {
+        let text = document.querySelectorAll('main div')
+        text.forEach(p => p.classList.remove('active'))
+        text[n - 1].classList.add('active')
+    }
+</script>
+
+</html>
